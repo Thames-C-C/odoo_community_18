@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the base customer form view -->
+        <record id="view_partner_form_inherit_thames" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.thames</field>
+            <field name="model">res.partner</field>
+            <!-- CRITICAL: Inherit from the original form view -->
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!--
+                    Use XPath to find a location on the form and add your new field.
+                    Here, we find the sheet element and add our field at the top.
+                -->
+                <xpath expr="//sheet" position="before">
+                    <group>
+                        <field name="account_type"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
