@@ -1,25 +1,22 @@
+# -*- coding: utf-8 -*-
 {
-    'name': "Thames ERP Configuration",
-    'summary': "Installs all the required modules for the Thames ERP project.",
-    'description': """
-        This module acts as the master configuration for any new Thames ERP deployment.
-        Installing this single module will automatically install all other required apps.
-    """,
+    'name': "Thames Config and Customizations", # You can rename this
+    'summary': "Adds custom fields and installs all required modules.",
     'author': "Your Company Name",
     'website': "https://www.thameserp.com",
     'category': 'Uncategorized',
     'version': '1.0',
 
-    # List the technical names of the apps you installed.
     'depends': [
         'base',
         'crm',
         'sale_management',
         'stock',
-        'account',
     ],
 
+    # ADD THIS 'data' SECTION
     'data': [
+        # 'security/ir.model.access.csv', # Good practice, but we'll skip for now
         'views/res_partner_views.xml',
     ],
 
