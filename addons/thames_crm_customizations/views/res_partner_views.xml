@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_thames" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.thames</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add a new notebook page for our custom fields -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Thames Custom Info" name="thames_custom_info">
+                    <group>
+                        <group string="General &amp; Branch">
+                            <field name="x_cust_code"/>
+                            <field name="x_branch_name"/>
+                            <field name="x_branch_code"/>
+                            <field name="x_account_status"/>
+                            <field name="x_business_category"/>
+                            <field name="x_business_type"/>
+                        </group>
+                        <group string="Financial Details">
+                            <field name="x_payment_method"/>
+                            <field name="x_bank_sort_code"/>
+                            <field name="x_bank_acc_no"/>
+                            <field name="x_ledger_account"/>
+                            <field name="x_settlement_terms_desc"/>
+                            <field name="x_vat_exempt"/>
+                        </group>
+                        <group string="Credit Control">
+                            <field name="x_cheque_limit" widget="monetary"/>
+                            <field name="x_iou_limit" widget="monetary"/>
+                            <field name="x_total_limit" widget="monetary"/>
+                            <field name="x_credit_check"/>
+                        </group>
+                        <group string="Discounts (%)">
+                            <field name="x_trade_discount_cc"/>
+                            <field name="x_trade_discount_del"/>
+                            <field name="x_settlement_discount"/>
+                            <field name="x_hierarchy_discount"/>
+                        </group>
+                        <group string="History &amp; Routing">
+                            <field name="x_date_opened"/>
+                            <field name="x_last_visit"/>
+                            <field name="x_route"/>
+                            <field name="x_drop_number"/>
+                        </group>
+                         <group string="Legacy Sales">
+                            <field name="x_ty_sales_value" widget="monetary"/>
+                            <field name="x_ly_sales_value" widget="monetary"/>
+                            <field name="x_av_sales_value" widget="monetary"/>
+                        </group>
+                        <group string="Legacy Info">
+                           <field name="x_params"/>
+                           <field name="x_holder1"/>
+                           <field name="x_holder2"/>
+                           <field name="x_holder3"/>
+                           <field name="x_mailing_code"/>
+                           <field name="x_mail_shot"/>
+                           <field name="x_tpd_eoid"/>
+                           <field name="x_tpd_fid"/>
+                        </group>
+                        <group string="Legacy Notes">
+                            <field name="x_notes_legacy"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

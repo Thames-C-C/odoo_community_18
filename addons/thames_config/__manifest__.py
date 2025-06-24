@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Thames Config and Customizations", # You can rename this
-    'summary': "Adds custom fields and installs all required modules.",
+    'name': "Thames ERP Configuration",
+    'summary': "Installs all required modules for the Thames ERP project.",
     'author': "Your Company Name",
     'website': "https://www.thameserp.com",
     'category': 'Uncategorized',
     'version': '1.0',
-
+    # List of all required applications plus our customizations
     'depends': [
-        'base',
         'crm',
         'sale_management',
+        'website',
         'stock',
+        'account', # This is the technical name for the Invoicing app
+        'thames_crm_customizations', # Your customizations module
     ],
-
-    # ADD THIS 'data' SECTION
-    'data': [
-        # 'security/ir.model.access.csv', # Good practice, but we'll skip for now
-        'views/res_partner_views.xml',
-    ],
-
     'installable': True,
     'application': True,
 }
