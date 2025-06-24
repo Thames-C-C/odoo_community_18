@@ -1,15 +1,20 @@
 {
-    'name': 'Thames CRM Customizations',
+    'name': 'Thames Configuration',
     'version': '1.0',
-    'summary': 'Adds custom fields to the customer form.',
-    'category': 'Sales/CRM',
+    'summary': 'Installs all necessary Thames CC modules.',
+    'category': 'Administration',
     'author': 'Thames CC',
     'website': 'https://www.thamescc.com',
-    'depends': ['base', 'contacts'],
-    'data': [
-        'views/res_partner_views.xml',
+    'depends': [
+        'crm',
+        'sale_management',
+        'stock',
+        'website',
+        'account',
+        'thames_crm_customizations',
     ],
+    'data': [],
     'installable': True,
-    'application': False,
+    'application': True,
     'auto_install': False,
 }
