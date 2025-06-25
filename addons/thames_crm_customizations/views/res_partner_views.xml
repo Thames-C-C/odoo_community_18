@@ -1,70 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_partner_form_inherit_thames_v2" model="ir.ui.view">
-        <field name="name">res.partner.form.inherit.thames</field>
+    <record id="view_partner_form_inherit_thames_v3" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.thames.financial</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <!-- Add a new notebook page for all the custom fields -->
             <notebook position="inside">
-                <page string="Thames CC Details">
+                <page string="Financial Data" name="financial_data">
                     <group>
-                        <group string="General &amp; Branch">
-                            <field name="x_cust_code"/>
-                            <field name="x_branch_name"/>
-                            <field name="x_branch_code"/>
-                            <field name="x_params"/>
-                        </group>
-                        <group string="Contact Holders">
-                            <field name="x_holder1"/>
-                            <field name="x_holder2"/>
-                            <field name="x_holder3"/>
-                        </group>
-                        <group string="Status &amp; Category">
-                            <field name="x_account_status"/>
-                            <field name="x_payment_method"/>
-                            <field name="x_business_category"/>
-                            <field name="x_business_type"/>
-                        </group>
-                        <group string="Mailing">
-                            <field name="x_mailing_code"/>
-                            <field name="x_mail_shot"/>
-                            <field name="x_vat_exempt"/>
-                        </group>
-                        <group string="Banking &amp; Financial">
-                            <field name="x_bank_sort_code"/>
-                            <field name="x_bank_acc_no"/>
-                            <field name="x_ledger_account"/>
-                            <field name="x_settlement_terms_desc"/>
-                        </group>
-                        <group string="Credit Control">
+                        <group string="Financial Limits">
                             <field name="x_cheque_limit"/>
-                            <field name="x_iou_limit"/>
-                            <field name="x_total_limit"/>
-                            <field name="x_credit_check"/>
+                            <field name="x_credit_limit"/>
+                            <field name="x_security_cheque_amount"/>
+                            <field name="x_bank_guarantee_amount"/>
                         </group>
-                        <group string="Discounts">
-                            <field name="x_trade_discount_cc"/>
-                            <field name="x_trade_discount_del"/>
-                            <field name="x_settlement_discount"/>
-                            <field name="x_hierarchy_discount"/>
+                        <group string="Account Balance">
+                            <field name="x_credit_balance"/>
+                            <field name="x_due_invoices_amount"/>
+                            <field name="x_overdue_invoices_amount"/>
+                            <field name="x_total_exposure" decoration-danger="1"/>
                         </group>
-                        <group string="History &amp; Routing">
-                            <field name="x_date_opened"/>
-                            <field name="x_notes_legacy"/>
-                            <field name="x_route"/>
-                            <field name="x_drop_number"/>
-                            <field name="x_last_visit"/>
+                        <group string="Classification &amp; History">
+                            <field name="x_customer_classification"/>
+                            <field name="x_customer_since"/>
+                            <field name="x_last_activity_date"/>
+                            <field name="x_business_segment"/>
                         </group>
-                        <group string="Legacy Sales Values">
-                            <field name="x_ty_sales_value"/>
-                            <field name="x_ly_sales_value"/>
-                            <field name="x_av_sales_value"/>
+                        <group string="Contact &amp; Delivery">
+                            <field name="x_primary_contact_person"/>
+                            <field name="x_secondary_contact_person"/>
+                            <field name="x_delivery_route_code"/>
+                             <field name="x_preferred_communication"/>
                         </group>
-                        <group string="Legacy Track &amp; Trace">
-                            <field name="x_tpd_eoid"/>
-                            <field name="x_tpd_fid"/>
+                         <group string="Tax Information">
+                            <field name="x_is_tax_exempt"/>
+                            <field name="x_tax_exemption_number" attrs="{'invisible': [('x_is_tax_exempt', '=', False)]}"/>
                         </group>
+                    </group>
+                    <group string="Notes">
+                         <field name="x_customer_notes" nolabel="1"/>
                     </group>
                 </page>
             </notebook>
