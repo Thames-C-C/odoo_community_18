@@ -72,4 +72,4 @@ class ResPartner(models.Model):
     @api.depends('x_credit_balance', 'x_security_cheque_amount', 'x_bank_guarantee_amount')
     def _compute_total_exposure(self):
         for partner in self:
-            partner.x_total_exposure = partner.x_credit_balance + partner.x_security_cheque_amount + partner.x_bank_guarantee_amount
+            partner.x_total_exposure = partner.x_credit_balance + partner.x_security_cheque_amount + partner.x_bank_guarantee_amount 
