@@ -32,18 +32,15 @@ class ResPartner(models.Model):
     x_vat_exempt = fields.Boolean('VAT Exempt')
 
     # Banking & Financial
-    # NOTE: Odoo has a better way to store multiple bank accounts.
-    # This is a simplified version.
     x_bank_sort_code = fields.Char('Bank Sort Code')
     x_bank_acc_no = fields.Char('Bank Account No.')
-    x_ledger_account = fields.Char('Ledger Account') # For simplicity. Could be Many2one to account.account
+    x_ledger_account = fields.Char('Ledger Account')
     x_settlement_terms_desc = fields.Char('Settlement Terms Description')
 
     # Credit Control
-    x_cheque_limit = fields.Monetary('Cheque Limit')
-    x_iou_limit = fields.Monetary('IOU Limit')
-    # Odoo has a standard 'credit_limit' field, but we add total_limit as requested
-    x_total_limit = fields.Monetary('Total Limit')
+    x_cheque_limit = fields.Monetary('Cheque Limit', currency_field='currency_id')
+    x_iou_limit = fields.Monetary('IOU Limit', currency_field='currency_id')
+    x_total_limit = fields.Monetary('Total Limit', currency_field='currency_id')
     x_credit_check = fields.Boolean('Credit Check Required')
 
     # Discounts
@@ -54,16 +51,15 @@ class ResPartner(models.Model):
 
     # History & Routing
     x_date_opened = fields.Date('Date Opened')
-    x_notes_legacy = fields.Text('Legacy Notes') # Using new name to avoid conflict
+    x_notes_legacy = fields.Text('Legacy Notes')
     x_route = fields.Char('Route')
     x_drop_number = fields.Integer('Drop Number')
     x_last_visit = fields.Date('Last Visit Date')
 
     # Legacy Sales Values
-    # NOTE: These could be computed fields later on.
-    x_ty_sales_value = fields.Monetary('This Year Sales Value')
-    x_ly_sales_value = fields.Monetary('Last Year Sales Value')
-    x_av_sales_value = fields.Monetary('Average Sales Value')
+    x_ty_sales_value = fields.Monetary('This Year Sales Value', currency_field='currency_id')
+    x_ly_sales_value = fields.Monetary('Last Year Sales Value', currency_field='currency_id')
+    x_av_sales_value = fields.Monetary('Average Sales Value', currency_field='currency_id')
 
     # Legacy Track & Trace
     x_tpd_eoid = fields.Char('Legacy TPD EOID')
