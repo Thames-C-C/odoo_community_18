@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_thames_extended" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.thames.extended</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button name="action_open_whatsapp_wizard" type="object" string="Send WhatsApp" class="oe_highlight"/>
+                </header>
+            </sheet>
+            <notebook position="inside">
+                <page string="Extended Details" name="extended_details">
+                    <group>
+                        <group string="Branch &amp; Customer Info">
+                            <field name="x_cust_code"/>
+                            <field name="x_branch_name"/>
+                            <field name="x_branch_code"/>
+                            <field name="x_business_category"/>
+                            <field name="x_business_type"/>
+                            <field name="x_params"/>
+                        </group>
+                        <group string="Account Information">
+                            <field name="x_account_status"/>
+                            <!-- Corrected field name -->
+                            <field name="x_sales_rep_name"/>
+                            <field name="x_payment_method"/>
+                            <field name="x_date_opened"/>
+                            <!-- Corrected field names -->
+                            <field name="x_main_account_ref"/>
+                            <field name="x_main_account_branch_name"/>
+                            <field name="x_whatsapp_no"/>
+                        </group>
+                        <group string="Contact Holders">
+                            <field name="x_holder1"/>
+                            <field name="x_holder2"/>
+                            <field name="x_holder3"/>
+                        </group>
+                        <group string="Mailing &amp; VAT">
+                            <field name="x_mailing_code"/>
+                            <field name="x_mail_shot"/>
+                            <field name="x_vat_exempt"/>
+                        </group>
+                        <group string="Banking &amp; Settlement">
+                            <field name="x_bank_sort_code"/>
+                            <field name="x_bank_acc_no"/>
+                            <!-- Corrected field name -->
+                            <field name="x_ledger_account_ref"/>
+                            <field name="x_settlement_terms"/>
+                            <field name="x_settlement_terms_desc"/>
+                        </group>
+                        <group string="Credit Control">
+                            <field name="x_cheque_limit"/>
+                            <field name="x_iou_limit"/>
+                            <field name="x_total_limit"/>
+                            <field name="x_credit_check"/>
+                        </group>
+                        <group string="Discounts">
+                            <field name="x_trade_discount_cc"/>
+                            <field name="x_trade_discount_del"/>
+                            <field name="x_settlement_discount"/>
+                            <field name="x_hierarchy_discount"/>
+                        </group>
+                        <group string="Routing &amp; History">
+                            <field name="x_route"/>
+                            <field name="x_drop_number"/>
+                            <field name="x_last_visit"/>
+                            <field name="x_container"/>
+                        </group>
+                        <group string="DMS Information">
+                            <field name="x_dms_customer_type"/>
+                        </group>
+                        <group string="EDI Transmission">
+                            <field name="x_edi_provider"/>
+                        </group>
+                        <group string="Legacy Sales Values">
+                            <field name="x_ty_sales_value"/>
+                            <field name="x_ly_sales_value"/>
+                            <field name="x_av_sales_value"/>
+                        </group>
+                        <group string="Tobacco Products Directive (TPD)">
+                            <field name="x_tpd_eoid"/>
+                            <field name="x_tpd_fid"/>
+                        </group>
+                    </group>
+                    <group string="Legacy Notes">
+                        <field name="x_legacy_notes" nolabel="1"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

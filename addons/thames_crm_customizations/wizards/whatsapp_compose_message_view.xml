@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="whatsapp_compose_message_form_view" model="ir.ui.view">
+            <field name="name">whatsapp.compose.message.form</field>
+            <field name="model">whatsapp.compose.message</field>
+            <field name="arch" type="xml">
+                <form string="Send WhatsApp Template">
+                    <group>
+                        <field name="partner_id" readonly="1" force_save="1"/>
+                        <field name="template_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="preview" nolabel="1" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_send_message" string="Send" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_whatsapp_compose_message" model="ir.actions.act_window">
+            <field name="name">Send WhatsApp Message</field>
+            <field name="res_model">whatsapp.compose.message</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="whatsapp_compose_message_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo> 

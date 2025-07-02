@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_whatsapp_mass_message_wizard_form" model="ir.ui.view">
+        <field name="name">whatsapp.mass.message.wizard.form</field>
+        <field name="model">whatsapp.mass.message.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send WhatsApp Message">
+                <group>
+                    <field name="template_id"/>
+                    <field name="recipient_type"/>
+                    <field name="partner_ids" help="Select recipients. Ignored if 'All Customers' is selected."/>
+                    <field name="preview" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_send_messages" string="Send" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_whatsapp_mass_message_wizard" model="ir.actions.act_window">
+        <field name="name">Send WhatsApp Message</field>
+        <field name="res_model">whatsapp.mass.message.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_whatsapp_mass_message_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_whatsapp_mass_message_wizard"
+              name="Send WhatsApp Message"
+              parent="menu_whatsapp_template"
+              action="action_whatsapp_mass_message_wizard"
+              sequence="60"/>
+</odoo> 
