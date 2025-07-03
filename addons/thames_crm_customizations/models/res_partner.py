@@ -1,7 +1,4 @@
-# We will use the official Twilio library now
 from odoo import models, fields, _
-from twilio.rest import Client
-from twilio.base.exceptions import TwilioRestException
 import logging
 from odoo.exceptions import UserError
 
